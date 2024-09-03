@@ -1,0 +1,32 @@
+# ---------------------------------
+# server / application
+# ---------------------------------
+server:
+  port: 8761
+  shutdown: graceful
+
+application:
+  title: ${spring.application.name}
+  version: 1.0.0
+  lastdate: 2024-09-03
+
+# ---------------------------------
+# spring
+# ---------------------------------
+spring:
+  application:
+    name: apigatewayservice
+  lifecycle:
+    timeout-per-shutdown-phase: 20s
+
+#logging:
+#  config: classpath:log4j2.xml
+
+# ---------------------------------
+# eureka
+# ---------------------------------
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+

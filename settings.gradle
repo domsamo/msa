@@ -1,0 +1,5 @@
+rootProject.name = 'msa'
+include 'apigateway-service'
+include 'discovery-service'
+include 'config-serivce'
+

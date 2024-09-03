@@ -1,0 +1,56 @@
+# ---------------------------------
+# server / application
+# ---------------------------------
+server:
+  port: 8888
+  shutdown: graceful
+
+application:
+  title: ${spring.application.name}
+  version: 1.0.0
+  lastdate: 2024-09-03
+
+# ---------------------------------
+# spring
+# ---------------------------------
+spring:
+  application:
+    name: config-service
+  lifecycle:
+    timeout-per-shutdown-phase: 20s
+  #  profiles:
+  #    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:///C://java//workspaces_intellij//work_github_dom//msa//config-service
+        git: #default
+          uri: https://github.com/joneconsulting/spring-cloud-config
+          default-label: master
+        #          username: <github-id>
+        #          password: <gihub-accessToken>
+        bootstrap: true
+#  rabbitmq:
+#    host: 127.0.0.1
+#    port: 5672
+#    username: guest
+#    password: guest
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, busrefresh, refresh, metrics
+
+#logging:
+#  config: classpath:log4j2.xml
+
+# ---------------------------------
+# eureka
+# ---------------------------------
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+

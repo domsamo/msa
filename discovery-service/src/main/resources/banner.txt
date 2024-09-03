@@ -1,0 +1,12 @@
+${AnsiColor.BRIGHT_BLUE} ______ _                                     _____           _
+${AnsiColor.BRIGHT_BLUE} |  _  (_)                                   /  ___|         (_)
+${AnsiColor.BRIGHT_BLUE} | | | |_ ___  ___ _____   _____ _ __ _   _  \ `--.  ___ _ __ ___   _____ ___
+${AnsiColor.BRIGHT_BLUE} | | | | / __|/ __/ _ \ \ / / _ \ '__| | | |  `--. \/ _ \ '__| \ \ / / __/ _ \
+${AnsiColor.BRIGHT_BLUE} | |/ /| \__ \ (_| (_) \ V /  __/ |  | |_| | /\__/ /  __/ |  | |\ V / (_|  __/
+${AnsiColor.BRIGHT_BLUE} |___/ |_|___/\___\___/ \_/ \___|_|   \__, | \____/ \___|_|  |_| \_/ \___\___|
+${AnsiColor.BRIGHT_BLUE}                                       __/ |
+${AnsiColor.BRIGHT_BLUE}                                      |___/
+${AnsiColor.BRIGHT_BLUE} ${application.title}-${application.version}
+${AnsiColor.BRIGHT_BLUE} Last modified : ${application.lastdate}
+${AnsiColor.BRIGHT_BLUE} Powered by Spring Boot ${spring-boot.version}
+${AnsiColor.DEFAULT}
