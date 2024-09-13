@@ -29,6 +29,10 @@ subprojects {
         compileOnly {
             extendsFrom annotationProcessor
         }
+        all {
+            //logback과의 충돌 방지
+            exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+        }
     }
 
     repositories {
@@ -46,11 +50,22 @@ subprojects {
     }
 
     dependencies {
+        // spring starter, lombok -------------------------------------------------------
         implementation 'org.springframework.boot:spring-boot-starter'
+        annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
         compileOnly 'org.projectlombok:lombok'
         annotationProcessor 'org.projectlombok:lombok'
+
+        // test -------------------------------------------------------------------------
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
         testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+        testCompileOnly 'org.projectlombok:lombok'
+        testAnnotationProcessor 'org.projectlombok:lombok'
+        testImplementation 'org.junit.jupiter:junit-jupiter'
+
+        // logging ----------------------------------------------------------------------
+        implementation 'org.springframework.boot:spring-boot-starter-log4j2'
+        implementation group: 'org.bgee.log4jdbc-log4j2', name:'log4jdbc-log4j2-jdbc4.1', version: '1.16'
 
         implementation fileTree('libs/dlab') { include '*.jar'}
     }

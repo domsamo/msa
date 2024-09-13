@@ -15,7 +15,7 @@ application:
 # ---------------------------------
 spring:
   application:
-    name: discoveryservice
+    name: discovery-service
   lifecycle:
     timeout-per-shutdown-phase: 20s
 

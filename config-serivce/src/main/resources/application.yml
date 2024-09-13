@@ -14,7 +14,7 @@ application:
 # spring
 # ---------------------------------
 spring:
-  application: 
+  application:
     name: config-service
   lifecycle:
     timeout-per-shutdown-phase: 20s
@@ -26,9 +26,9 @@ spring:
         native:
           search-locations: file:///C://java//workspaces_intellij//work_github_dom//msa//config-service
         git: #default
-          uri: https://github.com/joneconsulting/spring-cloud-config
-          default-label: master
-        #          username: <github-id>
+          uri: https://github.com/domsamo/config-service
+          default-label: main
+        #          username: <github-id> #domsamo
         #          password: <gihub-accessToken>
         bootstrap: true
 #  rabbitmq:
