@@ -12,18 +12,26 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.security:spring-security-config'
 
-    // spring cloud -------------------------------------------------------------
+    // spring cloud : eureka-client -------------------------------------------------
 //    implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 
+    // spring cloud : openfeign client ----------------------------------------------
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:3.1.0'
+    implementation 'io.github.openfeign:feign-micrometer'
+
+    // spring cloud : circuitbreaker ----------------------------------------------
+    implementation 'org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j'
+
+
     // etc ----------------------------------------------------------------------
     runtimeOnly 'com.h2database:h2:2.3.232'
+    implementation 'org.modelmapper:modelmapper:2.3.8'
+
+
     implementation 'jakarta.validation:jakarta.validation-api'
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
-    implementation 'org.modelmapper:modelmapper:2.3.8'
     implementation 'io.jsonwebtoken:jjwt-api:0.12.3'
     runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.3'
-
-
 
 }

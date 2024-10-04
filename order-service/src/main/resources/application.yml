@@ -2,7 +2,7 @@
 # server / application
 # ---------------------------------
 server:
-  port: 60000
+  port: 0
   shutdown: graceful
 
 application:
@@ -15,7 +15,7 @@ application:
 # ---------------------------------
 spring:
   application:
-    name: user-service
+    name: order-service
   lifecycle:
     timeout-per-shutdown-phase: 20s
 
@@ -34,11 +34,12 @@ spring:
     hibernate:
       ddl-auto: update
     show_sql: true
+    generate-ddl: true
   datasource:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:mem:testdb
     username: sa
-    password:
+#    password:
 
 # ---------------------------------
 # eureka
@@ -58,13 +59,9 @@ eureka:
 # ---------------------------------
 # logging
 # ---------------------------------
-#logging:
+logging:
+  level:
+    fbc: info
 #  config: classpath:log4j2.xml
 
 
-
-# ---------------------------------
-# user service
-# ---------------------------------
-greeting:
-  message: Welcome to the Simple E-commerce.

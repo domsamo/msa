@@ -3,4 +3,6 @@ include 'apigateway-service'
 include 'discovery-service'
 include 'config-serivce'
 include 'user-serivce'
+include 'catalog-service'
+include 'order-service'
 

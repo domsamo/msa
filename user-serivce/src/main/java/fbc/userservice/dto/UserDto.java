@@ -1,8 +1,10 @@
 package fbc.userservice.dto;
 
+import fbc.userservice.vo.ResponseOrder;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 public class UserDto {
@@ -16,5 +18,5 @@ public class UserDto {
 
     private String encryptedPwd;
 
-//    private List<ResponseOrder> orders;
+    private List<ResponseOrder> orders;
 }
