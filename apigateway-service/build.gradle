@@ -3,8 +3,20 @@ plugins {
 }
 
 dependencies {
+    // spring cloud : gateway -------------------------------------------------------
     implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
+    // spring cloud : eureka-client -------------------------------------------------
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+
+    // jwt --------------------------------------------------------------------------
+    implementation 'io.jsonwebtoken:jjwt-gson:0.12.3'
+    implementation 'io.jsonwebtoken:jjwt-api:0.12.3'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.3'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.3'
+
+//    implementation 'javax.xml.bind:jaxb-api:2.3.1'
+
+
 
 }
 
