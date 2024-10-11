@@ -1,6 +1,7 @@
 package fbc.apigateway.server.filter;
 
 import io.jsonwebtoken.JwtParser;
+import io.jsonwebtoken.JwtParserBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
@@ -23,6 +24,15 @@ import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
+/**
+ * ===========================================================
+ * @author      : jglee
+ * @packageName : fbc.apigateway.server.filter
+ * @fileName    : AuthorizationHeaderFilter
+ * @date        : 24. 10. 10.
+ * @description : 로그인시 발급한 JWT token으로 권한 체크
+ * ===========================================================
+ */
 @Component
 @Slf4j
 public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<AuthorizationHeaderFilter.Config> {
@@ -76,13 +86,11 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
         String subject = null;
 
         try {
-//            JwtParser jwtParser = Jwts.parser()
-//                    .verifyWith(signingKey)
-//                    .build();
-
-            subject = Jwts.parser()
+            JwtParser jwtParser = Jwts.parser()
                     .verifyWith(signingKey)
-                    .build()
+                    .build();
+
+            subject = jwtParser
                     .parseSignedClaims(jwt).getPayload().getSubject();
         } catch (Exception ex) {
             returnValue = false;
@@ -94,5 +102,4 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
 
         return returnValue;
     }
-
 }

@@ -18,19 +18,19 @@ spring:
     name: config-service
   lifecycle:
     timeout-per-shutdown-phase: 20s
-  #  profiles:
-  #    active: native
+  profiles:
+    active: native
   cloud:
     config:
       server:
         native:
-          search-locations: file:///C://java//workspaces_intellij//work_github_dom//msa//config-service
-        git: #default
-          uri: https://github.com/domsamo/config-service
-          default-label: main
+          search-locations: file:///C:/java/workspaces_intellij/work_github_dom/msa/config-service/src/main/resources/native-file-repo
+        #git: #default
+        #  uri: https://github.com/domsamo/config-service
+        #  default-label: main
         #          username: <github-id> #domsamo
         #          password: <gihub-accessToken>
-        bootstrap: true
+        #bootstrap: true
 #  rabbitmq:
 #    host: 127.0.0.1
 #    port: 5672

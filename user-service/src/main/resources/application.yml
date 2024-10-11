@@ -54,6 +54,15 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
 
+# ---------------------------------
+# spring actuator
+# ---------------------------------
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, busrefresh, refresh, metrics
+
 
 # ---------------------------------
 # logging
@@ -73,6 +82,7 @@ greeting:
 # ---------------------------------
 # login - jwt token
 # ---------------------------------
-token:
-  expiration_time: 86400000
-  secret: user_token_test21341329408172340172349123491234790123491749123sadfkadfaskfjhaflkasdfhlaflk1230498123491237419023840
+#token:
+#  expiration_time: 86400000
+#  secret: user_token_test21341329408172340172349123491234790123491749123sadfkadfaskfjhaflkasdfhlaflk1230498123491237419023840
+
