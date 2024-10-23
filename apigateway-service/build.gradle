@@ -3,10 +3,26 @@ plugins {
 }
 
 dependencies {
-    // spring cloud : gateway -------------------------------------------------------
+
+    /** =============================================================================
+     * Spring Cloud - Start
+     ============================================================================= */
+
+    // gateway -------------------------------------------------------
     implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
-    // spring cloud : eureka-client -------------------------------------------------
+
+    // eureka-client -------------------------------------------------
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+
+    // config-client -------------------------------------------------
+    implementation 'org.springframework.cloud:spring-cloud-starter-config'
+    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+//    implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
+
+    /** =============================================================================
+     * Spring Cloud - End
+     ============================================================================= */
 
     // jwt --------------------------------------------------------------------------
     implementation 'io.jsonwebtoken:jjwt-gson:0.12.3'

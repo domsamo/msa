@@ -60,17 +60,19 @@ public class GlobalHeaderFilter extends AbstractGatewayFilterFactory<GlobalHeade
     }
 
     private String getUri(ServerWebExchange exchange) {
-        LinkedHashSet<URI> uris = exchange.getAttribute(ServerWebExchangeUtils.GATEWAY_ORIGINAL_REQUEST_URL_ATTR);
-        try{
-            return Optional.ofNullable(uris)
-                    .orElseGet(LinkedHashSet::new)
-                    .stream()
-                    .findFirst()
-                    .map(uri -> uri.getPath())
-                    .orElseGet(() -> "");
-        }catch(Exception e){
-           return "";
-        }
+//        LinkedHashSet<URI> uris = exchange.getAttribute(ServerWebExchangeUtils.GATEWAY_ORIGINAL_REQUEST_URL_ATTR);
+//        try{
+//            return Optional.ofNullable(uris)
+//                    .orElseGet(LinkedHashSet::new)
+//                    .stream()
+//                    .findFirst()
+//                    .map(uri -> uri.getPath())
+//                    .orElseGet(() -> "");
+//        }catch(Exception e){
+//           return "";
+//        }
+        ServerHttpRequest request = exchange.getRequest();
+        return request.getURI().toString();
     }
 
     @Data
