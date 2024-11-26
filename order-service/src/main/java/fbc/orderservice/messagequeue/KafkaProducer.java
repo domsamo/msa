@@ -28,6 +28,12 @@ public class KafkaProducer {
         this.kafkaTemplate = kafkaTemplate;
     }
 
+    /**
+     * 주문 서비스를 json 포맷으로 변경하여 kafka로 전송
+     * @param topic
+     * @param orderDto
+     * @return
+     */
     public OrderDto send(String topic, OrderDto orderDto) {
         ObjectMapper mapper = new ObjectMapper();
         String jsonInString = "";

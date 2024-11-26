@@ -15,12 +15,25 @@ application:
 # ---------------------------------
 spring:
   application:
-    name: apigatewayservice
+    name: apigateway-service
   lifecycle:
     timeout-per-shutdown-phase: 20s
-# ---------------------------------
-# spring-gateway
-# ---------------------------------
+
+  # ---------------------------------
+  # configuration amqp reload - rabbitmq
+  # ---------------------------------
+#  rabbitmq:
+#    host: 127.0.0.1
+#    port: 5672
+#    username: guest
+#    password: guest
+#    listener:
+#      simple:
+#        prefetch: 5
+
+  # ---------------------------------
+  # spring-gateway
+  # ---------------------------------
   cloud:
     gateway:
       default-filters:
@@ -129,7 +142,7 @@ eureka:
       defaultZone: http://127.0.0.1:8761/eureka
 
 # ---------------------------------
-# login - jwt token -> config service
+# login - jwt token -> config service(api-gateway.yml)
 # ---------------------------------
 #token:
 #  secret: user_token_test21341329408172340172349123491234790123491749123sadfkadfaskfjhaflkasdfhlaflk1230498123491237419023840
@@ -137,8 +150,8 @@ eureka:
 # ---------------------------------
 # actuator
 # ---------------------------------
-management:
-  endpoints:
-    web:
-      exposure:
-        include: refresh, health, beans, httpexchanges, busrefresh, info, metrics, prometheus
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: refresh, health, beans, httpexchanges, busrefresh, info, metrics, prometheus

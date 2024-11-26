@@ -1,7 +1,10 @@
+# ---------------------------------
+# config service
+# ---------------------------------
 spring:
   cloud:
     config:
       uri: http://127.0.0.1:8888
-      name: msa
+      name: api-gateway
 #  profiles:
 #    active: dev

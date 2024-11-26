@@ -4,16 +4,37 @@ plugins {
 
 dependencies {
     // spring boot --------------------------------------------------------------
-//    implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
-    // spring cloud -------------------------------------------------------------
-//    implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
+    /** =============================================================================
+     * Spring Cloud - Start
+     ============================================================================= */
+    // eureka-client -------------------------------------------------
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 
+    // config-client -------------------------------------------------
+    implementation 'org.springframework.cloud:spring-cloud-starter-config'
+    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
+//    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+//    implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
+
+    // ---------------------------------------------------------
+    implementation 'io.micrometer:micrometer-observation'
+    implementation 'io.micrometer:micrometer-tracing-bridge-brave'
+    /** =============================================================================
+     * Spring Cloud - End
+     ============================================================================= */
+
+    // database ------------------------------------------------------
+//    runtimeOnly 'com.h2database:h2:2.3.232'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    runtimeOnly 'com.mysql:mysql-connector-j'
+
+    // kafka ----------------------------------------------------------------------
+    implementation 'org.springframework.kafka:spring-kafka'
+
     // etc ----------------------------------------------------------------------
-    runtimeOnly 'com.h2database:h2:2.3.232'
     implementation 'org.modelmapper:modelmapper:2.3.8'
 //    implementation 'jakarta.validation:jakarta.validation-api'
 //    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'

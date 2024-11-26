@@ -1,0 +1,10 @@
+FROM mysql:8.1.0
+ENV MYSQL_ROOT_PASSWORD=1q2w3e4r!
+ENV MYSQL_DATABASE=msadb
+ENV MYSQL_USER=fbc
+ENV MYSQL_PASSWORD=1q2w3e4r!
+ENV character-set-server=utf8
+ENV collation-server=utf8_general_ci
+ENV default-character-set=utf8
+ENV default-collation=utf8_general_ci
+EXPOSE 3306

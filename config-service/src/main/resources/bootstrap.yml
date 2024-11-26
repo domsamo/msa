@@ -1,7 +1,13 @@
 encrypt:
-#      key: abcdefghijklmnopqrstuvwxyz0123456789
-    key-store:
-        location: file://${user.home}/Desktop/git/toy-msa/config-service/apiEncryptionKey.jks
-#        location: file:/apiEncryptionKey.jks
-        password: test1234
-        alias: apiEncryptionKey
+# ---------------------------------
+# 단방향 암호화
+# ---------------------------------
+#  key: abcdefghijklmnopqrstuvwxyz0123456789
+
+# ---------------------------------
+# 양방향 암호화(개인키-공개키)
+# ---------------------------------
+  key-store:
+      location: file:///C:/java/workspaces_intellij/work_github_dom/msa/config-service/apiEncryptionKey.jks
+      password: test1234
+      alias: apiEncryptionKey
