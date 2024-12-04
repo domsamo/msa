@@ -416,3 +416,38 @@
             "topics" : "orders"
         }
     }
+
+
+connector 목록 조회
+curl -X GET "http://localhost:8083/connectors/"
+connector 상세 정보 조회
+curl -X GET "http://localhost:8083/connectors?expand=status&expand=info"
+connector config 조회
+GET 으로도 동일하게 동작함
+curl -X PUT "http://localhost:8083/connectors/{connector_name}/config
+특정 connector 상태 조회
+curl -X GET "http://localhost:8083/connectors/{connector_name}/status"
+connector 재시작
+※ task는 재시작되지 않음
+curl -X POST "http://localhost:8083/connectors/{connector_name}/restart"
+connector 일시중지 (pause)
+비동기 방식이므로 상태 조회시 바로 PAUSE 를 리턴하지 않을 수 있음
+curl -X PUT "http://localhost:8083/connectors/{connector_name}/pause"
+connector 복귀 (resume)
+pause 상태인 connector 를 복귀시킨다.
+비동기 방식이므로 상태 조회시 바로 RUNNING을 리턴하지 않을 수 있음
+connector 삭제
+curl -X DELETE "http://localhost:8083/connectors/{connector_name}
+Task
+connector의 task 목록 조회
+curl -X GET "http://localhost:8083/connectors/{connector_name}/tasks"
+connector 의 task 상태 조회
+curl -X GET "http://localhost:8083/connectors/{connector_name}/tasks/{task_id}/status"
+connector 의 task 재시작
+※ connector 가 RUNNING, task 가 FAIL 일 경우 사용
+curl -X POST "http://localhost:8083/connectors/{connector_name}/tasks/{task_id}/restart"
+Topic
+connector topic 조회
+curl -X GET "http://localhost:8083/connectors/{connector_name}/topics"
+connector topic reset
+curl -X PUT "http://localhost:8083/connectors/{connector_name}/topics/reset"

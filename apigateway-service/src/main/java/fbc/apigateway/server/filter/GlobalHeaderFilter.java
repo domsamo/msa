@@ -1,5 +1,8 @@
 package fbc.apigateway.server.filter;
 
+import fbc.apigateway.server.CommonConstants;
+import fbc.apigateway.server.util.GuidGenerator;
+import fbc.apigateway.server.util.HttpUtil;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
@@ -49,6 +52,25 @@ public class GlobalHeaderFilter extends AbstractGatewayFilterFactory<GlobalHeade
             if(config.isPreLogger()){
                 log.info("## Global Filter start : request url, id : [{}], [{}]", uri, request.getId());
             }
+
+            /** GUID 설정  */
+            String guid = HttpUtil.getHttpHeader(request.getHeaders(), CommonConstants.MsaHttpHeader.GLOBAL_ID);
+            if(guid == null || guid.isBlank()){
+                guid = GuidGenerator.generateGuid();
+            }
+            log.info("## GUID : {}", guid);
+            request.mutate().header(CommonConstants.MsaHttpHeader.GLOBAL_ID, guid).build();
+
+            /** Clint IP 설정 */
+            String ip = HttpUtil.getHttpHeader(request.getHeaders(), CommonConstants.MsaHttpHeader.CLIENT_IP);
+            if(ip == null || ip.isBlank()){
+                ip = HttpUtil.getIp(request.getHeaders());
+                if(ip == null || ip.isBlank()) {
+                    ip = request.getRemoteAddress().getAddress().getHostAddress();
+                }
+            }
+            log.info("## CLIENT IP : {}", ip);
+            request.mutate().header(CommonConstants.MsaHttpHeader.CLIENT_IP, ip).build();
 
             // Custom Pos Filter
             return chain.filter(exchange).then(Mono.fromRunnable(() -> {

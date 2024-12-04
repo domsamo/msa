@@ -97,6 +97,7 @@ public class OrderProducer {
         String jsonInString = "";
         try {
             jsonInString = mapper.writeValueAsString(kafkaOrderDto);
+            log.info("jsonInString:{}", jsonInString);
         } catch(JsonProcessingException ex) {
             ex.printStackTrace();
         }

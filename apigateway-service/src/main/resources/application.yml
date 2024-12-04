@@ -135,11 +135,14 @@ spring:
 # eureka
 # ---------------------------------
 eureka:
+  instance:
+    prefer-ip-address: true
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka
+#      defaultZone: http://127.0.0.1:8761/eureka,http://127.0.0.1:9761/eureka   #multi config
 
 # ---------------------------------
 # login - jwt token -> config service(api-gateway.yml)

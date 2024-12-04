@@ -1,0 +1,78 @@
+# ---------------------------------
+# server / application
+# ---------------------------------
+server:
+  port: 38080
+  shutdown: graceful
+
+application:
+  title: ${spring.application.name}
+  version: 1.0.0
+  lastdate: 2024-09-03
+
+# ---------------------------------
+# spring
+# ---------------------------------
+spring:
+  application:
+    name: catalog-service
+  lifecycle:
+    timeout-per-shutdown-phase: 20s
+# ---------------------------------
+# Batch
+# ---------------------------------
+  batch:
+    job:
+      enabled: false  # Application시작시 Job이 싱행되지 않도록 설정 (Http-endPoint, Scheduling을 통해 Job을 싱행시킴)
+    jdbc:
+      initialize-schema: always
+      schema: classpath:org/springframework/batch/core/schema-mysql.sql
+
+  # ---------------------------------
+# Multi Database (Spring-Batch-MetaData, Biz-Data)
+# ---------------------------------
+#  jpa:
+#    defer-datasource-initialization: true #Hibernate 초기화가 먼저 실행되도록 Spring Boot에서 데이터소스 초기화를 지연
+#    database-platform: org.hibernate.dialect.MySQLDialect
+#    hibernate:
+#      ddl-auto: none
+#    show_sql: true
+#    generate-ddl: true
+
+  datasource-meta:
+    driver-class-name: "net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+    url: "jdbc:log4jdbc:mysql://127.0.0.1:3306/msadb?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&serverTimezone=UTC&characterEncoding=UTF-8"
+    jdbcUrl: ${spring.datasource-meta.url}
+    username: "fbc"
+    password: "1q2w3e4r!"
+
+  datasource-data:
+    driver-class-name: "net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+    url: "jdbc:log4jdbc:mysql://127.0.0.1:3306/msadb?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&serverTimezone=UTC&characterEncoding=UTF-8"
+    jdbcUrl: ${spring.datasource-data.url}
+    username: "fbc"
+    password: "1q2w3e4r!"
+# ---------------------------------
+# eureka
+# ---------------------------------
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}} # eureka 서버에 인스턴스를 표시하기 위해
+  #    prefer-ip-address: true
+  #    ip-address: ${server.address}
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
+
+
+# ---------------------------------
+# logging
+# ---------------------------------
+logging:
+  level:
+    fbc: info
+#  config: classpath:log4j2.xml
+
+
