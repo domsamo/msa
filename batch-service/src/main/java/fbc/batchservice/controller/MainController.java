@@ -1,5 +1,7 @@
 package fbc.batchservice.controller;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.JobParametersBuilder;
 import org.springframework.batch.core.configuration.JobRegistry;
@@ -21,6 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 @ResponseBody
+@Slf4j
 public class MainController {
     private final JobLauncher jobLauncher;
     private final JobRegistry jobRegistry;
@@ -43,7 +46,7 @@ public class MainController {
                 .addString("date", value)
                 .toJobParameters();
 
-        jobLauncher.run(jobRegistry.getJob("firstJob"), jobParameters);
+        jobLauncher.wait(); //run(jobRegistry.getJob("firstJob"), jobParameters);
 
         return "ok";
     }
@@ -62,7 +65,6 @@ public class MainController {
                 .toJobParameters();
 
         jobLauncher.run(jobRegistry.getJob("secondJob"), jobParameters);
-
         return "ok";
     }
 
@@ -79,7 +81,8 @@ public class MainController {
                 .addString("date", value)
                 .toJobParameters();
 
-        jobLauncher.run(jobRegistry.getJob("excelToTableJob"), jobParameters);
+        JobExecution jobExecution = jobLauncher.run(jobRegistry.getJob("excelToTableJob"), jobParameters);
+        log.info("JobId : {}", jobExecution.getId());
 
         return "ok";
     }

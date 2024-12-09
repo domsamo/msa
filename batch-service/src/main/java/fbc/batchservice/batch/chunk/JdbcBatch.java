@@ -1,13 +1,6 @@
-package fbc.batchservice.batch;
+package fbc.batchservice.batch.chunk;
 
-import org.springframework.batch.core.configuration.annotation.StepScope;
-import org.springframework.batch.item.database.Order;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import javax.sql.DataSource;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * ===========================================================

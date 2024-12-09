@@ -25,7 +25,7 @@ spring:
     job:
       enabled: false  # Application시작시 Job이 싱행되지 않도록 설정 (Http-endPoint, Scheduling을 통해 Job을 싱행시킴)
     jdbc:
-      initialize-schema: always
+      initialize-schema: never
       schema: classpath:org/springframework/batch/core/schema-mysql.sql
 
   # ---------------------------------

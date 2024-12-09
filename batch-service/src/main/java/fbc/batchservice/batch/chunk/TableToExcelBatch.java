@@ -1,4 +1,4 @@
-package fbc.batchservice.batch;
+package fbc.batchservice.batch.chunk;
 
 import fbc.batchservice.entity.BeforeEntity;
 import fbc.batchservice.repository.BeforeRepository;

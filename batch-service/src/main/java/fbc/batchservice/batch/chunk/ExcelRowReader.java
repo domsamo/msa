@@ -1,4 +1,4 @@
-package fbc.batchservice.batch;
+package fbc.batchservice.batch.chunk;
 
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;

@@ -12,8 +12,7 @@ spring :
 #      path: /h2-console
 #  jpa:
 #    defer-datasource-initialization: true #Hibernate 초기화가 먼저 실행되도록 Spring Boot에서 데이터소스 초기화를 지연
-#    #    database-platform: org.hibernate.dialect.H2Dialect
-#    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+#    database-platform: org.hibernate.dialect.H2Dialect
 #    hibernate:
 #      ddl-auto: update
 #    show_sql: true
