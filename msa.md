@@ -452,3 +452,21 @@ connector topic 조회
 curl -X GET "http://localhost:8083/connectors/{connector_name}/topics"
 connector topic reset
 curl -X PUT "http://localhost:8083/connectors/{connector_name}/topics/reset"
+
+## Jenkins CICD
+    Jenkins를 이용한 CI/CD Pipeline 구축 강의에 대한 전체 과정에 대해 소개합니다.
+    강의에 상요한 샘플 프로젝트 및 스크립트는 아래에서 확인하실 수 있습니다.
+    https://github.com/joneconsulting/cicd-web-project
+    https://github.com/joneconsulting/jenkins_pipeline_script
+    https://github.com/joneconsulting/jenkins_cicd_script
+    강의 목차가 아래와 같이 8개 Section으로 변경 되었습니다.
+    Section 1 - DevOps와 CI/CD
+    Section 2 - Jenkins를 이용한 CI/CD 학습
+    Section 3 - Jenkins + Infrastructure as Code
+    Section 4 - Jenkins + Ansible + Kubernetes 연동
+    Section 5 - Advanced Jenkins 사용 ① - Pipeline
+    Section 6 - Advanced Jenkins 사용 ② - SonarQube, Multi nodes
+    Section 7 - 상용 클라우드 환경에 배포하기
+    Section 8 - 실습 환경을 위한 필수 SW
+
+    https://github.com/joneconsulting/docker-files

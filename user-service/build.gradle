@@ -21,7 +21,7 @@ dependencies {
     implementation 'org.springframework.cloud:spring-cloud-starter-config'
     implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
+//    implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
 
 
     // openfeign client ----------------------------------------------
@@ -34,6 +34,20 @@ dependencies {
     /** =============================================================================
      * Spring Cloud - End
      ============================================================================= */
+    //zipkin
+    implementation 'io.micrometer:micrometer-observation'
+    implementation 'io.micrometer:micrometer-tracing-bridge-brave'
+    implementation 'io.zipkin.brave:brave-instrumentation-spring-web'
+    implementation 'io.zipkin.reporter2:zipkin-reporter-brave'
+
+    implementation 'io.github.openfeign:feign-micrometer'
+
+
+    // monitoring
+    implementation 'io.micrometer:micrometer-registry-prometheus'
+
+    // swagger oas
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
 
     // jwt ----------------------------------------------
     implementation 'io.jsonwebtoken:jjwt-gson:0.12.3'
@@ -43,7 +57,6 @@ dependencies {
     // etc ----------------------------------------------------------------------
     runtimeOnly 'com.h2database:h2:2.3.232'
     implementation 'org.modelmapper:modelmapper:2.3.8'
-
 
     implementation 'jakarta.validation:jakarta.validation-api'
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'

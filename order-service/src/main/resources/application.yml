@@ -34,6 +34,12 @@ spring:
 # datasource 정보를 Config Serivce의 order-service.yml 로 이동
 # ---------------------------------
 
+  # ---------------------------------
+  # zipkin
+  # ---------------------------------
+  zipkin:
+    base-url: http://localhost:9411
+    enabled: true
 
 # ---------------------------------
 # eureka
@@ -49,6 +55,27 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
 
+# ---------------------------------
+# spring actuator
+# ---------------------------------
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, busrefresh, refresh, info, metrics, prometheus
+  # ---------------------------------
+  # spring actuator-zipkin
+  # ---------------------------------
+  tracing:
+    sampling:
+      probability: 1.0
+    propagation:
+      consume: B3
+      produce: B3
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
+
 
 # ---------------------------------
 # logging
@@ -56,6 +83,8 @@ eureka:
 logging:
   level:
     fbc: info
+  pattern:
+    correlation: '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'
 #  config: classpath:log4j2.xml
 
 

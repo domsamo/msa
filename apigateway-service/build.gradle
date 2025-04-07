@@ -24,6 +24,9 @@ dependencies {
      * Spring Cloud - End
      ============================================================================= */
 
+    // monitoring
+    implementation 'io.micrometer:micrometer-registry-prometheus'
+
     // jwt --------------------------------------------------------------------------
     implementation 'io.jsonwebtoken:jjwt-gson:0.12.3'
     implementation 'io.jsonwebtoken:jjwt-api:0.12.3'

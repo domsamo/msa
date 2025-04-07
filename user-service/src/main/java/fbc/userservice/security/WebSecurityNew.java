@@ -73,8 +73,8 @@ public class WebSecurityNew {
 //                                .requestMatchers("/**").access(
 //                                        new WebExpressionAuthorizationManager("hasIpAddress('localhost') or hasIpAddress('127.0.0.1') or hasIpAddress('172.30.1.44')")) // host pc ip address
 //                                .anyRequest().authenticated()
-                                .requestMatchers("/**").access(
-                                        new WebExpressionAuthorizationManager("hasIpAddress('127.0.0.1') or hasIpAddress('172.30.1.44')")) // host pc ip address
+//                                .requestMatchers("/**").access(
+//                                        new WebExpressionAuthorizationManager("hasIpAddress('127.0.0.1') or hasIpAddress('172.30.1.44') or hasIpAddress('192.168.219.44')")) // host pc ip address
                                 .anyRequest().authenticated()
                 )
                 .authenticationManager(authenticationManager)

@@ -106,6 +106,16 @@ spring:
           uri: lb://ORDER-SERVICE
           predicates:
             - Path=/order-service/**
+
+        - id: order-service
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/order-service/actuator/**
+            - Method=GET,POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/order-service/(?<segment>.*), /$\{segment}
+
         - id: first-service
           uri: lb://MY-FIRST-SERVICE
           predicates:
@@ -148,13 +158,14 @@ eureka:
 # login - jwt token -> config service(api-gateway.yml)
 # ---------------------------------
 #token:
-#  secret: user_token_test21341329408172340172349123491234790123491749123sadfkadfaskfjhaflkasdfhlaflk1230498123491237419023840
+#  expiration_time: 86400000
+#  secret: user_token_default_application_test21341329408172340172349123491234790123491749123sadfkadfaskfjhaflkasdfhlaflk1230498123491237419023840
 
 # ---------------------------------
 # actuator
 # ---------------------------------
-#management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: refresh, health, beans, httpexchanges, busrefresh, info, metrics, prometheus
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, beans, httpexchanges, busrefresh, info, metrics, prometheus

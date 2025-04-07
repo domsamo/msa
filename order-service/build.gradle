@@ -16,7 +16,7 @@ dependencies {
     // config-client -------------------------------------------------
     implementation 'org.springframework.cloud:spring-cloud-starter-config'
     implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
-//    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
 //    implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
 
     // ---------------------------------------------------------
@@ -25,6 +25,14 @@ dependencies {
     /** =============================================================================
      * Spring Cloud - End
      ============================================================================= */
+    //zipkin
+    implementation 'io.micrometer:micrometer-observation'
+    implementation 'io.micrometer:micrometer-tracing-bridge-brave'
+    implementation 'io.zipkin.brave:brave-instrumentation-spring-web'
+    implementation 'io.zipkin.reporter2:zipkin-reporter-brave'
+
+    // monitoring
+    implementation 'io.micrometer:micrometer-registry-prometheus'
 
     // database ------------------------------------------------------
 //    runtimeOnly 'com.h2database:h2:2.3.232'

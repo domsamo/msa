@@ -25,9 +25,9 @@ spring:
       server:
         native:
           search-locations: file:///C:/java/workspaces_intellij/work_github_dom/msa/config-service/src/main/resources/native-file-repo
-        git: #default
-          uri: https://github.com/domsamo/config-service
-          default-label: main
+#        git: #default
+#          uri: https://github.com/domsamo/config-service
+#          default-label: main
 #          username: <github-id>
 #          password: #<gihub-accessToken>
         bootstrap: true
@@ -40,12 +40,12 @@ spring:
 #    port: 5672
 #    username: guest
 #    password: guest
-#
-#management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: health, busrefresh, refresh, metrics
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, busrefresh, refresh, metrics
 
 #logging:
 #  config: classpath:log4j2.xml

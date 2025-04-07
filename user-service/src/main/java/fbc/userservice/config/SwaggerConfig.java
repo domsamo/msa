@@ -17,6 +17,7 @@ import org.springframework.context.annotation.Configuration;
 public class SwaggerConfig {
     @Bean
     public GroupedOpenApi customTestOpenAPI() {
+        // swagger에 노출시킬 endpoint 리스트 선언
         String[] paths = {"/users/**", "/welcome", "/health-check"};
 
         return GroupedOpenApi.builder()

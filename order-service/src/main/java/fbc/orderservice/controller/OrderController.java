@@ -75,7 +75,7 @@ public class OrderController {
 //        orderDto.setTotalPrice(orderDetails.getQty() * orderDetails.getUnitPrice());
 
         /* send this order to the kafka topic -> catalog service */
-        kafkaProducer.send("example-catalog-topic", orderDto);
+        orderProducer.send("example-catalog-topic", orderDto);
 
         log.info("After added orders data");
         return ResponseEntity.status(HttpStatus.CREATED).body(responseOrder);
